@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Area -->
+<div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{% static 'assets/images/bg/breadcrumb-bg.jpg' %}"
+data-black-overlay="4">
+<div class="container">
+    <div class="tm-breadcrumb text-center">
+        <h2>{{product.title}}</h2>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'service' %}">Our Service</a></li>
+            <li>{{product.title}}</li>
+        </ul>
+    </div>
+</div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Main Content -->
+<main class="main-content">
+
+<!-- Product Details Area -->
+<div class="tm-section product-details-area bg-white tm-padding-section">
+    <div class="container">
+        <p>{% include 'alearts.html' %}</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="tm-prodetails">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-12">
+
+                            <!-- Product Details Images -->
+                            <div class="tm-prodetails-images">
+                                <div class="tm-prodetails-largeimages">
+                                    <div class="tm-prodetails-largeimage">
+                                        <a data-fancybox="tm-prodetails-imagegallery" href="{{product.image.url}}"
+                                            data-caption="Product Zoom Image 1">
+                                            <img src="{{product.image.url}}" alt="product image">
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            <!--// Product Details Images -->
+
+                        </div>
+
+                        <div class="col-lg-7 col-md-6 col-12">
+                            <div class="tm-prodetails-content">
+                                <h3 class="tm-prodetails-title">{{product.title}}</h3>
+                               
+                                <div class="tm-prodetails-price">
+                                    <span>${{product.price}}</span>
+                                </div>
+                                <p>{{product.description | safe}}</p>
+                                <div class="tm-prodetails-quantitycart">
+                                    <form action="" method="POST" class="mb-5">
+                                        {% csrf_token %}
+                                        <div class="tm-quantitybox">
+                                            <input type="text" name="quantity" value="1" >
+                                        </div>
+                                        <input type="submit" class="tm-button tm-button-dark" value="Add To Cart">
+                                    </form>
+                                    
+                                </div>
+
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+    
+{% endblock content %}
+    

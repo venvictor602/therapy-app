@@ -1,0 +1,46 @@
+{% load static %}
+
+    <!-- Header Bottom Area -->
+    <div class="header-bottomarea">
+        <div class="container">
+            <div class="header-bottominner">
+                <div class="header-logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'assets/images/logo/logo.png' %}" alt="dialia logo">
+                    </a>
+                </div>
+                <nav class="tm-navigation">
+                    <ul>
+                        <li ><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'service' %}">Our services</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <ul>
+                        <li><a href="{% url 'cart' %}"><i class="zmdi zmdi-shopping-cart"></i></a>{% if cart %} {{ cart|length }}{% endif %}</li>
+                        <li><a href="#" class="header-searchtrigger"><i class="zmdi zmdi-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="header-searchbox">
+                    <div class="header-searchinner">
+                        <form action="{% url 'search' %}" method="GET"  class="header-searchform">
+                            <input type="text" placeholder="Enter search keyword.." name="query">
+                        </form>
+                        <button class="search-close"><i class="zmdi zmdi-close"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="header-mobilemenu clearfix">
+                <div class="tm-mobilenav"></div>
+            </div>
+        </div>
+    </div>
+    <!--// Header Bottom Area -->
+
+</div>
+<!--// Header Area -->
+
+</div>
+<!--// Header Area -->

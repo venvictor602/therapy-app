@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Area -->
+<div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{% static 'assets/images/bg/breadcrumb-bg.jpg' %}"
+data-black-overlay="4">
+<div class="container">
+    <div class="tm-breadcrumb text-center">
+        <h2>Contact Us</h2>
+        <ul>
+            <li><a href="{% url 'contact' %}">Home</a></li>
+            <li>Contact</li>
+        </ul>
+    </div>
+</div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Main Content -->
+<main class="main-content">
+
+<!-- Contact Us Area -->
+<div class="tm-section contact-us-area tm-padding-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8 col-md-10 col-12">
+                <div class="tm-section-title text-center">
+                    <h2>How To Find Us</h2>
+                      <!-- Alerts -->
+                        <p> {% include 'alearts.html' %}</p></p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-30-reverse">
+            <div class="col-lg-4 col-md-6 col-12 mt-30">
+                <div class="tm-contactblock text-center">
+                    <span class="tm-contactblock-icon">
+                        <i class="flaticon-placeholder"></i>
+                    </span>
+                    <span class="tm-contactblock-backicon">
+                        <i class="flaticon-placeholder"></i>
+                    </span>
+                    <h5>Our location</h5>
+                    <p>7415 Transcanadienne, Suite 100
+                        St. Laurent, Quebec, Canada
+                        H45T 1Z22</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-30">
+                <div class="tm-contactblock text-center">
+                    <span class="tm-contactblock-icon">
+                        <i class="flaticon-alarm-clock"></i>
+                    </span>
+                    <span class="tm-contactblock-backicon">
+                        <i class="flaticon-alarm-clock"></i>
+                    </span>
+                    <h5>Our location</h5>
+                    <ul>
+                        <li>Monday - Friday <span>12:00 - 17:00</span></li>
+                        <li>Saturday <span>15:00 - 18:00</span></li>
+                        <li>Sunday <span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-30">
+                <div class="tm-contactblock text-center">
+                    <span class="tm-contactblock-icon">
+                        <i class="flaticon-phone"></i>
+                    </span>
+                    <span class="tm-contactblock-backicon">
+                        <i class="flaticon-phone"></i>
+                    </span>
+                    <h5>Our location</h5>
+                    <ul>
+                        <li>Phone <span>: 1 800 915 6270</span></li>
+                        <li>Tel <span>: 1 514 733 2010</span></li>
+                        <li>Fax <span>: 1 866 535 1747</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-50">
+            <div class="col-lg-8">
+                <form id="tm-contactform" action="{% url 'contact' %}" method="POST" class="tm-form tm-contact-form">
+                    {% csrf_token %}
+                    <div class="tm-form-inner">
+                        <div class="tm-form-field tm-form-fieldhalf">
+                            <input type="text" name="name" required="required" placeholder="Name*">
+                        </div>
+                        <div class="tm-form-field tm-form-fieldhalf">
+                            <input type="email" name="email" required="required" placeholder="Email*">
+                        </div>
+                        <div class="tm-form-field tm-form-fieldhalf">
+                            <input type="text" name="phone" placeholder="Phone">
+                        </div>
+                        <div class="tm-form-field tm-form-fieldhalf">
+                            <input type="text" name="subject" required="required" placeholder="Subject*">
+                        </div>
+                        <div class="tm-form-field">
+                            <textarea name="message" cols="30" rows="5" placeholder="Message"></textarea>
+                        </div>
+                        <div class="tm-form-field text-center">
+                            <button type="submit" class="tm-button tm-button-dark">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="form-messages"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// Contact Us Area -->
+
+
+</main>
+<!--// Main Content -->
+
+    
+{% endblock content %}
+    

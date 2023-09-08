@@ -1,0 +1,14 @@
+<!-- Single Service -->
+<div class="col-lg-4 col-md-6 col-12 mt-30">
+    <div class="tm-service text-center wow fadeInUp">
+        <div class="tm-service-inner">
+           <a href="{% url 'product' product.subcategory.slug product.slug %}"><img src="{{product.image.url}}" alt=""></a>
+            <h2><a href="">{{product.title}}</a></h2>
+            <h3>${{product.price}}</h3>
+            
+            
+            <a href="{% url 'product' product.subcategory.slug product.slug %}" class="tm-readmore">View Full Details</a>
+        </div>
+    </div>
+</div>
+<!--// Single Service -->

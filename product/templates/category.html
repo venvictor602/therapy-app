@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumb Area -->
+<div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{% static 'assets/images/bg/breadcrumb-bg.jpg' %}"
+data-black-overlay="4">
+<div class="container">
+    <div class="tm-breadcrumb text-center">
+        <h2>{{category.title}}</h2>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>{{category.title}}</li>
+        </ul>
+    </div>
+</div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Services Area -->
+    <div class="tm-section services-area tm-padding-section bg-white">
+        <span class="bg-shape-left"><img src="{% static 'assets/images/icons/bg-shape-1.png' %}" alt="background shape"></span>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8 col-md-10 col-12">
+                    <div class="tm-section-title text-center">
+                        <h2>{{category.title}}</h2>
+                        <p>{{category.description | safe}}</p>
+    
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-30-reverse">
+    
+                {% for subcategory in submain_categories %}
+
+                <!-- Single Service -->
+                <div class="col-lg-4 col-md-6 col-12 mt-30">
+                    <div class="tm-service text-center wow fadeInUp">
+                        <div class="tm-service-inner">
+                            
+                            <h5><a href="">{{subcategory.title}}</a></h5>
+                            <p>{{subcategory.description | safe | slice:":100"}}</p>
+                            <a href="{% url 'subcat' subcategory.slug %}" class="tm-readmore">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <!--// Single Service -->
+                {% endfor %}
+
+                
+            </div>
+        </div>
+    </div>
+    <!--// Services Area -->
+    
+    </main>
+    
+
+
+
+
+{% endblock %}

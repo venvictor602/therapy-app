@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- Breadcrumb Area -->
+ <div class="tm-breadcrumb-area tm-padding-section" data-bgimage="{% static 'assets/images/bg/breadcrumb-bg.jpg' %}"
+ data-black-overlay="4">
+ <div class="container">
+     <div class="tm-breadcrumb text-center">
+         <h2>Checkout</h2>
+         <ul>
+             <li><a href="{% url 'success' %}">Home</a></li>
+             <li>Checkout</li>
+         </ul>
+     </div>
+ </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Main Content -->
+<main class="main-content">
+
+ <!-- Checkout Area -->
+ <div class="tm-section tm-checkout-area bg-white tm-padding-section">
+     <div class="container">
+         <form method="post" action="." class="tm-form tm-checkout-form">
+            {% csrf_token %}
+             <div class="row">
+                 <div class="col-lg-6">
+                     <h4 class="small-title">BILLING INFORMATION</h4>
+
+                     <!-- Billing Form -->
+                     <div class="tm-checkout-billingform">
+                         <div class="tm-form-inner">
+                             <div class="tm-form-field tm-form-fieldhalf">
+                                 <label for="billingform-firstname">First name*</label>
+                                 <input type="text" id="billingform-firstname" required  name="first_name">
+                             </div>
+                             <div class="tm-form-field tm-form-fieldhalf">
+                                 <label for="billingform-lastname">Last name*</label>
+                                 <input type="text" id="billingform-lastname" required  name="last_name">
+                             </div>
+                             
+                             <div class="tm-form-field">
+                                 <label for="billingform-email">Email address</label>
+                                 <input type="email" id="billingform-email" required  name="email">
+                             </div>
+                             <div class="tm-form-field">
+                                 <label for="billingform-phone">Phone (Optional)</label>
+                                 <input type="text" id="billingform-phone" required  name="phone">
+                             </div>
+                             <div class="tm-form-field">
+                                 <label for="billingform-country">Country</label>
+                                 <input type="text" id="billingform-phone" required  name="country">
+                             </div>
+                             <div class="tm-form-field">
+                                 <label for="billingform-address">Address</label>
+                                 <input type="text" id="billingform-address" required  name="address" placeholder="Apartment, Street Address">
+                             </div>
+                             <div class="tm-form-field tm-form-fieldhalf">
+                                 <label for="billingform-streetaddress">State</label>
+                                 <input type="text" id="billingform-streetaddress" required  name="state">
+                             </div>
+                             
+                             <div class="tm-form-field tm-form-fieldhalf">
+                                <label for="billingform-book_date">Book Date</label>
+                                <input type="date" id="billingform-book_date" required  name="book_date">
+                            </div>
+                             
+                         </div>
+                     </div>
+                     <!--// Billing Form -->
+
+                     
+
+                 </div>
+                 <div class="col-lg-6">
+                     <div class="tm-checkout-orderinfo">
+                         <div class="table-responsive">
+                             <table class="table table-borderless tm-checkout-ordertable">
+                                 <thead>
+                                     <tr>
+                                         <th>Product</th>
+                                         <th>Total</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                    {% for item in cart %}
+
+                                     <tr>
+                                         <td>{{item.product.title}}</td>
+                                         <td>${{item.product.price}}</td>
+                                     </tr>
+                                    {% endfor %}
+                                 </tbody>
+                                 <tfoot>
+                                     <tr class="tm-checkout-subtotal">
+                                         <td>Cart Total</td>
+                                         <td>${{ cart.get_total_cost }}</td>
+                                     </tr>
+                                     
+                                 </tfoot>
+                             </table>
+                         </div>
+
+                        
+
+                         <div class="tm-checkout-submit">
+                             <p>Your personal data will be used to process your order, support your
+                                 experience throughout this website, and for other purposes described in our
+                                 privacy policy.</p>
+                             <div class="tm-form-inner">
+                                 <div class="tm-form-field">
+                                     <input type="checkbox" name="checkout-read-terms" id="checkout-read-terms">
+                                     <label for="checkout-read-terms">I have read and agree to the website
+                                         terms and conditions</label>
+                                 </div>
+                                 <div class="tm-form-field">
+                                     <button type="submit" class="tm-button ml-auto">Place Order <b></b></button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </form>
+     </div>
+ </div>
+ <!--// Checkout Area -->
+
+</main>
+<!--// Main Content -->
+    
+{% endblock content %}
+    

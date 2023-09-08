@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Heroslider Area -->
+<div class="heroslider-area" data-black-overlay="3">
+
+    <!-- Heroslider Slider -->
+    <div class="heroslider-slider heroslider-animated tm-slider-dots tm-slider-dots-left">
+
+        <!-- Heroslider Single -->
+        <div class="heroslider-singleslider d-flex align-items-center" data-bgimage="{% static 'assets/images/bg/bg-image-1.jpg' %}"  data-white-overlay="7">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6 col-12">
+                        <div class="heroslider-content">
+                            <h1>Pain makes People change</h1>
+                            <p>Massage has a positive effect on
+                                every
+                                medical condition we have looked
+                                at massage is to work and act on the body with pressure.</p>
+                            <a href="{% url 'about' %}" class="tm-button">About
+                                Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Heroslider Single -->
+
+        <!-- Heroslider Single -->
+        <div class="heroslider-singleslider d-flex align-items-center" data-bgimage="{% static 'assets/images/bg/bg-image-2.jpg' %}"  data-white-overlay="7">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-7 col-md-6 col-12">
+                        <div class="heroslider-content text-center">
+                            <h1>Pain makes People</h1>
+                            <p>Massage has a positive effect on
+                                every
+                                medical condition we have looked
+                                at massage is to work and act on the body with pressure.</p>
+                            <a href="{% url 'about' %}" class="tm-button">About
+                                Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Heroslider Single -->
+
+        <!-- Heroslider Single -->
+        <div class="heroslider-singleslider d-flex align-items-center" data-bgimage="{% static 'assets/images/bg/bg-image-3.jpg' %}"  data-white-overlay="7">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6 col-12">
+                        <div class="heroslider-content">
+                            <h1>Pain makes People change</h1>
+                            <p>Massage has a positive effect on
+                                every
+                                medical condition we have looked
+                                at massage is to work and act on the body with pressure.</p>
+                            <a href="{% url 'about' %}" class="tm-button">About
+                                Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Heroslider Single -->
+
+    </div>
+    <!--// Heroslider Slider -->
+
+</div>
+<!--// Heroslider Area -->
+
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Features Area -->
+    <div class="tm-section features-area bg-white tm-padding-section">
+        <div class="container">
+            <div class="row justify-content-center mt-30-reverse">
+
+                <!-- Single Feature -->
+                <div class="col-lg-4 col-md-6 col-12 mt-30">
+                    <div class="tm-feature text-center wow fadeInUp">
+                        <span class="tm-feature-icon">
+                            <i class="flaticon-spa"></i>
+                        </span>
+                        <span class="tm-feature-backicon">
+                            <i class="flaticon-spa"></i>
+                        </span>
+                        <h5>Massage Therapy</h5>
+                        <p>Massage therapy is the manipulation of the soft tissues of the body including
+                            muscles, connective tissue, tendons, ligaments and joints.</p>
+                    </div>
+                </div>
+                <!--// Single Feature -->
+
+                <!-- Single Feature -->
+                <div class="col-lg-4 col-md-6 col-12 mt-30">
+                    <div class="tm-feature text-center wow fadeInUp">
+                        <span class="tm-feature-icon">
+                            <i class="flaticon-physical"></i>
+                        </span>
+                        <span class="tm-feature-backicon">
+                            <i class="flaticon-physical"></i>
+                        </span>
+                        <h5>Physio Therapy</h5>
+                        <p>Physiotherapists spend years studying how the body works, how injuries impact
+                            performance & how to recover and repair injured tissues.</p>
+                    </div>
+                </div>
+                <!--// Single Feature -->
+
+                <!-- Single Feature -->
+                <div class="col-lg-4 col-md-6 col-12 mt-30">
+                    <div class="tm-feature text-center wow fadeInUp">
+                        <span class="tm-feature-icon">
+                            <i class="flaticon-acupuncture"></i>
+                        </span>
+                        <span class="tm-feature-backicon">
+                            <i class="flaticon-acupuncture"></i>
+                        </span>
+                        <h5>Acupuncture</h5>
+                        <p>Acupuncture is a form of alternative medicine
+                            in which thin needles are inserted into the
+                            body. It is a key component of medicine.</p>
+                    </div>
+                </div>
+                <!--// Single Feature -->
+
+            </div>
+        </div>
+    </div>
+    <!--// Features Area -->
+
+    
+
+    <!-- Services Area -->
+    <div class="tm-section services-area tm-padding-section bg-white">
+        <span class="bg-shape-left"><img src="{% static 'assets/images/icons/bg-shape-1.png' %}" alt="background shape"></span>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8 col-md-10 col-12">
+                    <div class="tm-section-title text-center">
+                        <h2>Our Services</h2>
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-30-reverse">
+                {% for category in main_categories %}
+
+                <!-- Single Service -->
+                <div class="col-lg-4 col-md-6 col-12 mt-30">
+                    <div class="tm-service text-center wow fadeInUp">
+                        <div class="tm-service-inner">
+                            <a href="{% url 'category' category.slug %}"><img src="{{category.image.url}}" alt=""></a>
+                            <h5><a href="{% url 'category' category.slug %}">{{category.title}}</a></h5>
+                            <p>{{category.description | safe | slice:":100" }}</p>
+                            <a href="{% url 'category' category.slug %}" class="tm-readmore">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <!--// Single Service -->
+                {% endfor %}
+
+                
+                
+            </div>
+        </div>
+    </div>
+    <!--// Services Area -->
+
+
+    </main>
+    
+{% endblock content %}
+    
